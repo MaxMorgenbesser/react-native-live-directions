@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
 import * as Location from "expo-location";
-import { locationArray, queryParams } from "./Models";
+import { locationObj, queryParams } from "./Models";
 import Directions from "./Directions";
 
 export default function PropProvider() {
-  const [location, setLocation] = useState<locationArray>();
+  const [location, setLocation] = useState<locationObj>();
 
   useEffect(() => {
     (async () => {
@@ -18,8 +18,8 @@ export default function PropProvider() {
         { distanceInterval: 10 },
         (location: {
           coords: {
-            latitude: Number;
-            longitude: Number;
+            latitude: number;
+            longitude: number;
           };
         }) => {
           setLocation({
@@ -38,7 +38,7 @@ export default function PropProvider() {
       <Directions 
       mode="driving" 
       origin={location}
-      destination="3151+clint+moore+road,+boca+raton+florida"
+      destination={{latitude:26.376032, longitude:-80.122360}}
       avoid={undefined}
       language="en"
       traffic_model={undefined}

@@ -1,14 +1,15 @@
-export interface locationArray {
-    latitude:Number,
-    longitude:Number
+export interface locationObj {
+    latitude:number ,
+    longitude:number 
+ 
 }
 
 
 
 export interface queryParams {
     mode:string,
-    origin:locationArray | undefined,
-    destination:locationArray | string,
+    origin:locationObj | undefined,
+    destination:locationObj | undefined,
     avoid:"tolls" | "highways" | "ferries" | "indoors" | undefined,
     language:string,
     traffic_model:string | undefined,
